@@ -1,4 +1,30 @@
-Feature: Search Results. Where one can sort, filter and see details of resulting products.
+Feature: Sorted results
+
+As a ebay user
+I want to see the filtered, sorted results
+So that i can buy the best prodcut
+
+Background:
+Given I am a non-registered customer
+When I navigate to the "www.ebay.co.uk"
+And  I enter the item name in the search box
+
+@smoke
+Scenario: Search filtered results
+
+@smoke @regression
+Scenario: Search unfiltered results
+
+@regression
+Scenario Outline: Search sorted results
+Given I am in results page
+When i choose "sort type"
+Then i should have my url with the "content"
+Examples:
+|sort type|content|
+|Lowest Price|sop=3|
+|Hghest Price|sop=1|
+
 
   @001
   Scenario: Search and verify results
